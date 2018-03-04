@@ -1,0 +1,43 @@
+{
+    "name": "tmajne/payum-przelewy24",
+    "type": "library",
+    "description": "przelewy24 gateway for payum",
+    "keywords": ["payment", "przelewy24", "payum"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "TT",
+            "email": "ttomczyk@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "payum/core": "^1.5",
+        "php-http/guzzle6-adapter": "^1.1"
+    },
+    "require-dev": {
+        "payum/core": "^1.5@dev",
+        "phpunit/phpunit": "^7.0",
+        "mockery/mockery": "^1.0",
+        "symfony/var-dumper": "^4.0",
+        "payum/offline": "^1.5"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nova\\Payum\\P24\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nova\\Payum\\P24\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.5-dev"
+        }
+    }
+}

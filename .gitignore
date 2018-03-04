@@ -1,0 +1,10 @@
+### Composer template
+*.iws
+composer.phar
+phpunit.xml
+
+.idea/
+/vendor/
+/out/
+
+
