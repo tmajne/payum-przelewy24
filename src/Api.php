@@ -122,10 +122,10 @@ class Api
             'p24_description' => $details['p24_description'] ?? '',
             'p24_email' => $details['p24_email'],
 
-            //'p24_url_return' => $details['done_url'],
+            'p24_url_return' => $details['done_url'],
             'p24_url_status' => $details['notify_url'],
 
-            'p24_url_return' => 'http://rtdev.pl/payment/done?status=ok&source=p24',
+            //'p24_url_return' => 'http://rtdev.pl/payment/done?status=ok&source=p24',
             //'p24_url_status' => 'http://rtdev.pl/payment/notify/unsafe/p24',
             //'p24_url_cancel' => 'http://www.rtdev.pl',
 
