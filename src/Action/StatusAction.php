@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Nova\Payum\P24\Action;
 
+use Nova\Payum\P24\Api;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Request\GetStatusInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
@@ -22,7 +23,30 @@ class StatusAction implements ActionInterface
 
         $model = ArrayObject::ensureArrayObject($request->getModel());
 
-        throw new \LogicException('Not implemented');
+        //dump('status');
+        //dump($model);
+        //dump($model['status']);
+        //dump($request);
+        if (null === $model['status'] || Api::STATUS_NEW == $model['status']) {
+            $request->markNew();
+            return;
+        }
+        /*elseif ($model['status'] == 'PENDING') {
+            $request->markPending();
+            return;
+        } elseif ($model['status'] == 'COMPLETED') {
+            $request->markCaptured();
+            return;
+        }elseif ($model['status'] == 'CANCELED') {
+            $request->markCanceled();
+            return;
+        } elseif ($model['status'] == 'REJECTED') {
+            $request->markFailed();
+            return;
+        }*/
+
+        exit('unknown status');
+        $request->markUnknown();
     }
 
     /**
