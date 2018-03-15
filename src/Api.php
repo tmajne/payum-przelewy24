@@ -18,6 +18,12 @@ class Api
     public const STATUS_PENDING = 'pending';
     public const STATUS_RECEIVED = 'received';
     public const STATUS_REFUNDED = 'refunded';
+    public const STATUS_VERIFIED = 'verified';
+
+    public const CURRENCY_PLN = 'PLN';
+    public const CURRENCY_EUR = 'EUR';
+    public const CURRENCY_GBP = 'GBP';
+    public const CURRENCY_CZK = 'CZK';
 
     private const METHOD_REGISTER = 'trnRegister';
     private const METHOD_VERIFY = 'trnVerify';
@@ -122,12 +128,9 @@ class Api
             'p24_description' => $details['p24_description'] ?? '',
             'p24_email' => $details['p24_email'],
 
-            'p24_url_return' => $details['done_url'],
             'p24_url_status' => $details['notify_url'],
-
-            //'p24_url_return' => 'http://rtdev.pl/payment/done?status=ok&source=p24',
-            //'p24_url_status' => 'http://rtdev.pl/payment/notify/unsafe/p24',
-            //'p24_url_cancel' => 'http://www.rtdev.pl',
+            'p24_url_return' => $details['done_url'],
+            'p24_url_cancel' => $details['cancel_url'] ?? $details['done_url'],
 
             //'p24_method' => 25,
             //'p24_channel' => 16,

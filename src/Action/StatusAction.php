@@ -45,8 +45,19 @@ class StatusAction implements ActionInterface
             return;
         }*/
 
-        exit('unknown status');
-        $request->markUnknown();
+        switch (true) {
+            case (null === $model['status'] || Api::STATUS_NEW == $model['status']):
+                $request->markNew();
+                return;
+            case (null === $model['status'] || Api::STATUS_VERIFIED == $model['status']):
+                $request->markCaptured();
+                return;
+            default:
+                dump($model['status']);
+                exit('StatusAction: unknown status');
+                $request->markUnknown();
+                exit;
+        }
     }
 
     /**
